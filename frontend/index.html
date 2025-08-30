@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Station</title>
+    <style>
+      html, body { height: 100%; margin: 0; }
+      body { display: grid; place-items: center; font-family: system-ui, sans-serif; }
+      .card { padding: 1.25rem 1.5rem; border: 1px solid #ddd; border-radius: 12px; }
+      .muted { color: #666; font-size: .92rem; margin-top: .5rem; }
+      button { padding: .6rem 1rem; border-radius: 10px; border: 1px solid #ccc; background: #fafafa; cursor: pointer; }
+      button:active { transform: translateY(1px); }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1 style="margin:0 0 .5rem 0;">Now Playing</h1>
+      <div id="track" style="margin-bottom:.75rem; color:#333;"></div>
+      <button id="unmute">Tap to Unmute</button>
+      <div class="muted" id="status">Loading & syncing…</div>
+      <audio id="audio" preload="auto" crossorigin="anonymous"></audio>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
