@@ -1,6 +1,6 @@
 // Configure your MP3 & station name here:
 //const MP3_URL = "https://friendzone.best/alarm.mp3"; 
-const MP3_URL = "alarm.mp3"; 
+const MP3_URL = "/alarm.mp3"; 
 const STATION_LABEL = "My Station — Track A";
 
 const audio = document.getElementById("audio");
@@ -11,7 +11,13 @@ document.getElementById("track").textContent = STATION_LABEL;
 audio.src = MP3_URL;
 
 // --- WebSocket clock sync (offset) ---
-const ws = new WebSocket("ws://localhost:8080");
+//const wsScheme = location.protocol === 'https:' ? 'wss' : 'ws';
+//const wsHost = 'friendzone.best:8080';            // includes :port if present
+// If you’ll proxy WS on a path (recommended), use that path here:
+//const wsPath = '/alarm/ws';              // change to whatever you proxy
+//const ws = new WebSocket(`${wsScheme}://${wsHost}${wsPath}`);
+
+const ws = new WebSocket("wss://friendzone.best/alarm/ws");
 let serverOffsetMs = 0;
 let state = null;
 let durationSec = null;

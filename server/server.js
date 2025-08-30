@@ -11,8 +11,8 @@ const MP3_DURATION_SEC = 4920;
 const STATION_START_EPOCH_MS = 0;
 
 const server = http.createServer();
-const wss = new WebSocketServer({ server });
 
+const wss = new WebSocketServer({ server, path: "/alarm/ws" });
 const nowMs = () => Date.now();
 
 wss.on("connection", (ws) => {
